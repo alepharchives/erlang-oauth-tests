@@ -11,3 +11,6 @@ ebin/%.beam: src/%.erl
 
 clean:
 	rm -rf ebin erl_crash.dump
+
+test: all
+	@erl -pa ebin -pa ../erlang-oauth/ebin -s crypto -noshell -s oauth_unit tests -s init stop
